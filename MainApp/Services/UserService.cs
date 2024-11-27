@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using MainApp.Factories;
 using MainApp.Helpers;
 using MainApp.Models;
@@ -6,10 +7,27 @@ namespace MainApp.Services;
 
 public class UserService
 {
-    public void Create(UserRegistrationForm form)
+    private readonly List<UserEntity> _users = [];
+    public bool Create(UserRegistrationForm form)
     {
-       UserEntity userEntity = UserFactory.Create(form);
-       userEntity.Id = UniqueIdentifierGenerator.GenerateUniqueId();
-       userEntity.Password = SecurePasswordGenerator.Generate(form.Password);
+        try
+        {
+            UserEntity userEntity = UserFactory.Create(form);
+            userEntity.Id = UniqueIdentifierGenerator.GenerateUniqueId();
+            userEntity.Password = SecurePasswordGenerator.Generate(form.Password);
+
+            _users.Add(userEntity);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            return false;
+        }
+    }
+
+    public void ClearList()
+    {
+        _users.Clear();
     }
 }

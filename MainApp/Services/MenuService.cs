@@ -1,10 +1,15 @@
+using MainApp.Factories;
 using MainApp.Interfaces;
 using MainApp.Models;
 
 namespace MainApp.Services;
 
-public class MenuDialogs : IMenuDialogs
-{
+public class MenuService : IMenuDialogs
+{   
+    // I have to use dependency injection instead
+    private readonly UserService _userService = new UserService();
+    
+    
     public void Show()
     {
         while (true)
@@ -30,7 +35,7 @@ public class MenuDialogs : IMenuDialogs
                     QuitOption();
                     break;
                 case "1":
-                    CreatOption();
+                    CreateOption();
                     break;
                 case "2":
                     ViewOption();
@@ -54,22 +59,26 @@ public class MenuDialogs : IMenuDialogs
             }
         }
 
-        private void CreatOption()
+        private void CreateOption()
         {
-            var userRegistrationForm = new UserRegistrationForm();
+            UserRegistrationForm userRegistrationForm = UserFactory.Create();
             Console.Clear();
             
-            Console.WriteLine("Enter your first name: )");
-            userRegistrationForm.FirstName = Console.ReadLine();
+            Console.Write("Enter your first name: )");
+            userRegistrationForm.FirstName = Console.ReadLine()!;
             
-            Console.WriteLine("Enter your last name: )");
-            userRegistrationForm.LastName = Console.ReadLine();
+            Console.Write("Enter your last name: )");
+            userRegistrationForm.LastName = Console.ReadLine()!;
 
-            Console.WriteLine("Enter your email: )");
-            userRegistrationForm.Email = Console.ReadLine();
+            Console.Write("Enter your email: )");
+            userRegistrationForm.Email = Console.ReadLine()!;
             
-            Console.WriteLine("Enter your password: )");
-            userRegistrationForm.Password = Console.ReadLine();
+            Console.Write("Enter your password: )");
+            userRegistrationForm.Password = Console.ReadLine()!;
+    
+            bool result = _userService.Create(userRegistrationForm);
+
+            OutputDialog(result ? "User was successfully created." : "User creation failed.");
 
             Console.ReadKey();
         }
@@ -84,5 +93,10 @@ public class MenuDialogs : IMenuDialogs
             Console.Clear();
             Console.WriteLine("You must enter a valid option.");
             Console.ReadKey();
+        }
+        public void OutputDialog(string message)
+        {
+            Console.Clear();
+            Console.WriteLine(message);
         }
 }
