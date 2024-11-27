@@ -64,16 +64,16 @@ public class MenuService : IMenuDialogs
             UserRegistrationForm userRegistrationForm = UserFactory.Create();
             Console.Clear();
             
-            Console.Write("Enter your first name: )");
+            Console.Write("Enter your first name: ");
             userRegistrationForm.FirstName = Console.ReadLine()!;
             
-            Console.Write("Enter your last name: )");
+            Console.Write("Enter your last name: ");
             userRegistrationForm.LastName = Console.ReadLine()!;
 
-            Console.Write("Enter your email: )");
+            Console.Write("Enter your email: ");
             userRegistrationForm.Email = Console.ReadLine()!;
             
-            Console.Write("Enter your password: )");
+            Console.Write("Enter your password: ");
             userRegistrationForm.Password = Console.ReadLine()!;
     
             bool result = _userService.Create(userRegistrationForm);
@@ -85,7 +85,16 @@ public class MenuService : IMenuDialogs
 
         private void ViewOption()
         {
+            var users = _userService.GetAll();
             Console.Clear();
+
+            foreach (var user in users)
+            {
+                Console.WriteLine($"{"Id:",-15}{user.Id}");
+                Console.WriteLine($"{"Name:",-15}{user.FirstName} {user.LastName}");
+                Console.WriteLine($"{"Email:",-15}{user.Email}");
+                Console.WriteLine("");
+            }
             Console.ReadKey();
         }
         private void InvalidOption()

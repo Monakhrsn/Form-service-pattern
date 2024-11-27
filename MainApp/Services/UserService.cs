@@ -30,4 +30,16 @@ public class UserService
     {
         _users.Clear();
     }
+
+    public IEnumerable<User> GetAll()
+    {
+       /*
+            var list = new List<User>();
+            foreach (var userEntity in _users)
+            list.Add(UserFactory.Create(userEntity));
+            return list;
+        */
+       
+       return _users.Select(UserFactory.Create);
+    }
 }

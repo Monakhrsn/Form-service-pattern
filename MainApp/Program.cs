@@ -1,5 +1,4 @@
 ﻿using MainApp.Services;
 
-var dialogs = new MenuService();
-
-dialogs.Show();
+var menuService = new MenuService();
+menuService.Show();
