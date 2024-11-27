@@ -1,0 +1,14 @@
+/Users/RiderProjects/ServicePattern/MainApp/bin/Debug/net9.0/MainApp
+/Users/RiderProjects/ServicePattern/MainApp/bin/Debug/net9.0/MainApp.deps.json
+/Users/RiderProjects/ServicePattern/MainApp/bin/Debug/net9.0/MainApp.runtimeconfig.json
+/Users/RiderProjects/ServicePattern/MainApp/bin/Debug/net9.0/MainApp.dll
+/Users/RiderProjects/ServicePattern/MainApp/bin/Debug/net9.0/MainApp.pdb
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/MainApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/MainApp.AssemblyInfoInputs.cache
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/MainApp.AssemblyInfo.cs
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/MainApp.csproj.CoreCompileInputs.cache
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/MainApp.dll
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/refint/MainApp.dll
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/MainApp.pdb
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/MainApp.genruntimeconfig.cache
+/Users/RiderProjects/ServicePattern/MainApp/obj/Debug/net9.0/ref/MainApp.dll
