@@ -13,8 +13,6 @@ public class UserService
         try
         {
             UserEntity userEntity = UserFactory.Create(form);
-            userEntity.Id = UniqueIdentifierGenerator.GenerateUniqueId();
-            userEntity.Password = SecurePasswordGenerator.Generate(form.Password);
 
             _users.Add(userEntity);
             return true;
